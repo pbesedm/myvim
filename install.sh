@@ -15,7 +15,7 @@ do
 	dir=`echo $line | cut -d' ' -f1 | cut -d'/' -f2`;
 	url=`echo $line | cut -d' ' -f2`;
 	git clone --recursive $url $dir;
-	# Clone may not be interrupt by network issue.
+	# Clone may be interrupted by network delay.
 	if [[ $? -ne 0]]; then
 		echo "\e[31;1m Clone $url Failed!\e[0m"
 	fi
