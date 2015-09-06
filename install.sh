@@ -2,7 +2,7 @@
 
 ROOTDIR=`pwd`/myvim
 
-git clone https://github.com/pbesedm/myvim.git
+git clone --recursive https://github.com/pbesedm/myvim.git
 
 cd $ROOTDIR/vim/bundle/
 echo $ROOTDIR
