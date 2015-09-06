@@ -15,6 +15,10 @@ do
 	dir=`echo $line | cut -d' ' -f1 | cut -d'/' -f2`;
 	url=`echo $line | cut -d' ' -f2`;
 	git clone --recursive $url $dir;
+	# Clone may not be interrupt by network issue.
+	if [[ $? -ne 0]]; then
+		echo "\e[31;1m Clone $url Failed!\e[0m"
+	fi
 done
 
 clang_exist=`which clang`
@@ -26,7 +30,7 @@ fi
 
 ycm_compile_ret=`echo $?`
 if [[ $ycm_compile_ret -ne 0 ]]; then
-	echo "YouCompleteMe compile Failed!"
+	echo "\e[31;1m YouCompleteMe compile Failed!\e[0m"
 	exit -1
 fi
 
