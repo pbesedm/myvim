@@ -11,20 +11,4 @@ vim/colors
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 #
-
-vim/bundle/YouCompleteMe/
-vim/bundle/auto-pairs/
-vim/bundle/ctrlp.vim/
-vim/bundle/emmet-vim/
-vim/bundle/indentLine/
-vim/bundle/nerdcommenter/
-vim/bundle/nerdtree/
-vim/bundle/rainbow_parentheses.vim/
-vim/bundle/snipmate.vim/
-vim/bundle/tabular/
-vim/bundle/vim-airline/
-vim/bundle/vim-colors-solarized/
-vim/bundle/vim-easymotion/
-vim/bundle/vim-javascript/
-vim/bundle/vim-jsbeautify/
-vim/bundle/vim-powerline/
+vim/bundle/

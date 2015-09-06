@@ -43,7 +43,12 @@ Plugin 'Lokaltog/vim-powerline'
 Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'msanders/snipmate.vim'
+
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
@@ -72,10 +77,14 @@ let g:airline_theme                      = "bubblegum" "设定主题
 let g:airline_powerline_fonts			 = 1
 
 " Trigger configuration. Do not use <tab>
-" if you use the https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want: :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+" if you use the https://github.com/Valloric/YouCompleteMe.
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " NERDTree
