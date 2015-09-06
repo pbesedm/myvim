@@ -5,7 +5,6 @@ ROOTDIR=`pwd`/myvim
 git clone --recursive https://github.com/pbesedm/myvim.git
 
 cd $ROOTDIR/vim/bundle/
-echo $ROOTDIR
 
 grep '^Plugin' ../../vimrc |
 cut -d' ' -f2 |
@@ -13,7 +12,7 @@ sed "s/'//g" |
 awk '{header="https://github.com/";addr=$1;git=".git";url=(header""addr""git);print addr,url}' |
 while read line;
 do
-	dir=`echo $line | cut -d' ' -f1`;
+	dir=`echo $line | cut -d' ' -f1 | cut -d'/' -f2`;
 	url=`echo $line | cut -d' ' -f2`;
 	git clone --recursive $url $dir;
 done
