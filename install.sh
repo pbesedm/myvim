@@ -1,7 +1,8 @@
-#!/bin/bash
+set -e
 
 ROOTDIR=`pwd`/myvim
 
+echo -e "\e[31;1mCloning myvim ...\e[0m"
 git clone --recursive https://github.com/pbesedm/myvim.git
 
 cd $ROOTDIR/vim/bundle/
@@ -14,10 +15,11 @@ while read line;
 do
 	dir=`echo $line | cut -d' ' -f1 | cut -d'/' -f2`;
 	url=`echo $line | cut -d' ' -f2`;
-	git clone --recursive $url $dir;
-	# Clone may be interrupted by network delay.
+	if [ ! -d $dir ]; then
+		git clone --recursive $url $dir;
+	fi
 	if [[ $? -ne 0 ]]; then
-		echo "\e[31;1m Clone $url Failed!\e[0m"
+		echo -e "\e[31;1m Clone $url Failed!\e[0m"
 	fi
 done
 
