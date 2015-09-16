@@ -38,3 +38,5 @@ fi
 cd $ROOTDIR
 ln -s $ROOTDIR/vimrc ~/.vimrc
 ln -s $ROOTDIR/vim ~/.vim
+
+echo -e "\e[31;1mInstall myvim done!\e[0m"
