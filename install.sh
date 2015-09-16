@@ -24,14 +24,13 @@ do
 done
 
 clang_exist=`which clang`
-if [[ $clang -eq 0 ]]; then
+if [[ $clang_exist -eq 0 ]]; then
 	cd YouCompleteMe && ./install.py --clang-completer --system-libclang
 else
 	cd YouCompleteMe && ./install.py --clang-completer
 fi
 
-ycm_compile_ret=`echo $?`
-if [[ $ycm_compile_ret -ne 0 ]]; then
+if [[ $? -ne 0 ]]; then
 	echo "\e[31;1m YouCompleteMe compile Failed!\e[0m"
 	exit -1
 fi
