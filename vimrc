@@ -58,7 +58,6 @@ filetype indent on		"为特定文件类型载入相关缩进文件
 set list
 " 下面一句最后面一定要留有一个空格
 set list listchars=tab:\¦\ 
-set expandtab
 let g:indentLine_char = '¦'
 let g:indentLine_color_term = 20
 
@@ -163,7 +162,8 @@ set hidden
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set noexpandtab         "不要用空格代替制表符
+set expandtab           "用空格代替制表符
+"set noexpandtab         "不要用空格代替制表符
 set smarttab            "在行和段开始处使用制表符
 "}
 
