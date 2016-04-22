@@ -33,13 +33,14 @@ Plugin 'scrooloose/nerdcommenter'
 
 " 迄今为止最好的自动VIM自动补全插件
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 " 让代码更加易于纵向排版，以=或,符号对齐
 Plugin 'godlygeek/tabular'
 
 Plugin 'Yggdroot/indentLine'
 Plugin 'pangloss/vim-javascript'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -57,22 +58,26 @@ filetype plugin on		"载入文件类型插件
 filetype indent on		"为特定文件类型载入相关缩进文件
 
 set list
+set laststatus=2
+set encoding=utf-8
+
 " 下面一句最后面一定要留有一个空格
-set list listchars=tab:\¦\ 
-let g:indentLine_char = '¦'
+set list listchars=tab:\|\ 
+let g:indentLine_char = '|'
 let g:indentLine_color_term = 20
 
 " YouCompleteMe 配置
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 
 " vim-powerline
 let g:Powerline_symbols = 'fancy'
 
 " airline 配置
-set laststatus=2
-let g:airline#extensions#whitespace#enabled = 1
-"let g:airline_detect_whitespace          = 0 "关闭空白符检测
+set ttimeoutlen=50
+let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Trigger configuration. Do not use <tab>
 let g:UltiSnipsExpandTrigger="<c-j>"
