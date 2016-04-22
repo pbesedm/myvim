@@ -40,7 +40,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'Yggdroot/indentLine'
 Plugin 'pangloss/vim-javascript'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'altercation/vim-colors-solarized'
 
@@ -71,9 +72,7 @@ let g:Powerline_symbols = 'fancy'
 set laststatus=2
 let g:airline#extensions#whitespace#enabled = 1
 "let g:airline_detect_whitespace          = 0 "关闭空白符检测
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline_theme                      = "bubblegum" "设定主题
-let g:airline_powerline_fonts			 = 1
+let g:airline_powerline_fonts = 1
 
 " Trigger configuration. Do not use <tab>
 let g:UltiSnipsExpandTrigger="<c-j>"
