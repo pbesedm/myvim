@@ -171,8 +171,8 @@ set expandtab           "用空格代替制表符
 set smarttab            "在行和段开始处使用制表符
 "}
 
-set cursorline			"设置光标高亮显示
-set cursorcolumn		"光标垂直高亮
+set cursorline "设置光标高亮显示
+"set cursorcolumn "光标垂直高亮
 " 设置当前行高亮
 " 注意：没有配置 ctermfg=xxx，这样做可避免当前行内容变成同一个颜色
 hi CursorLine cterm=NONE ctermbg=239 guibg=Grey40 guifg=white
@@ -255,7 +255,7 @@ noremap! <C-A> <Home>
 inoremap <C-E> <End>
 
 " 标签操作
-map <C-T> :tabnew .<CR>
+map <C-T> :tabnew<CR>
 imap <C-T> <ESC>:tabnew .<CR>
 nnoremap t0 :tabfirst<CR>
 nnoremap tl :tabfirst<CR>
