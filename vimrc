@@ -52,6 +52,8 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them
 Plugin 'honza/vim-snippets'
 
+Plugin 'fatih/vim-go'
+
 call vundle#end()
 
 filetype plugin on		"载入文件类型插件
@@ -135,7 +137,8 @@ if version > 580
 		syntax reset
 	endif
 endif
-colorscheme desert
+"colorscheme desert
+colorscheme molokai
 set noeb
 set et
 set lbr
