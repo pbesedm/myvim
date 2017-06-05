@@ -52,7 +52,12 @@ Plugin 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them
 Plugin 'honza/vim-snippets'
 
+" Support golang
 Plugin 'fatih/vim-go'
+
+" Switch between source files and header files quckly.
+Plugin 'vim-scripts/a.vim'
+
 
 call vundle#end()
 
@@ -69,8 +74,52 @@ let g:indentLine_char = '|'
 let g:indentLine_color_term = 20
 
 " YouCompleteMe 配置
-"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" When this option is set to 1 YCM will ask once per .ycm_extra_conf.py file
+" if it is safe to be loaded. This is to prevent execution of malicious code
+" from a .ycm_extra_conf.py file you didn't write.
+" Default: 1
 let g:ycm_confirm_extra_conf = 0
+" This option controls the number of characters the user needs to type before
+" identifier-based completion suggestion are triggered. For example, if the
+" option is set to 2, then when the user types a second alphanumeric charater
+" after a whitespace charater, completion suggestions will be triggered. This
+" option is NOT used for semantic completion.
+" Setting this option to a high number like 99 effectively turns off the
+" identifier completion engine and just leaves the semantic engine.
+" Default: 2
+let g:ycm_min_num_of_chars_for_completion = 2
+" This option controls the minimum number of charaters that a completion
+" candidate coming from the identifier completer must have to be shown in the
+" popup menu.
+" A special value of 0 means there is no limit.
+" NOTE: This option only applies to the identifier completer; it has no effect
+" on the various semantic completer.
+" Default: 0
+let g:ycm_min_num_identifier_candidate_chars = 0
+" When set to 0, this option turns off YCM's identifier completer(the
+" as-you-type popup) and the semantic triggers(the popup you'd get after typing
+" . of -> in say C++). You can still force semantic completion with <C-Space>
+" shortcut.
+" If you want to just turn off the identifier completer but keep the semantic
+" triggers, you should set g:ycm_min_num_of_chars_for_completion to a high
+" number like 99.
+" Default: 1
+let g:ycm_auto_trigger = 1
+" This option controls the key mapping used to invoke the completion menu for
+" semantic completion. By defaul, semantic completion is trigged automatically
+" after typing ., -> and :: in insert mode (if semantic completion support has
+" been compiled in). This key mapping can be used to trigger semantic completion
+" anywhere. Useful for searching for top-level functions and classes.
+"
+" Console Vim (not Gvim or MacVim) passes <Nul> to Vim when the user type
+" <C-Space> so YCM will make sure that <Nul> is used in the map command when
+" you're editing in console Vim, and <C-Space> in GUI Vim. This means that you
+" can just press <C-Space> in both console and GUI Vim and YCM will do the right
+" thing.
+"
+" Setting this option to and empty string will make sure no mapping is created.
+" Default: <C-Space>
+let g:ycm_key_invoke_completion = '<C-l>'
 
 " vim-powerline
 let g:Powerline_symbols = 'fancy'
@@ -137,8 +186,8 @@ if version > 580
 		syntax reset
 	endif
 endif
-"colorscheme desert
-colorscheme molokai
+colorscheme desert
+"colorscheme molokai
 set noeb
 set et
 set lbr
