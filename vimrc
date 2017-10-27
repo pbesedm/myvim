@@ -38,6 +38,8 @@ Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " 让代码更加易于纵向排版，以=或,符号对齐
 Plugin 'godlygeek/tabular'
 
+Plugin 'plasticboy/vim-markdown'
+
 Plugin 'Yggdroot/indentLine'
 Plugin 'pangloss/vim-javascript'
 "Plugin 'Lokaltog/vim-powerline'
@@ -57,6 +59,8 @@ Plugin 'fatih/vim-go'
 
 " Switch between source files and header files quckly.
 Plugin 'vim-scripts/a.vim'
+
+
 
 
 call vundle#end()
@@ -87,7 +91,7 @@ let g:ycm_confirm_extra_conf = 0
 " Setting this option to a high number like 99 effectively turns off the
 " identifier completion engine and just leaves the semantic engine.
 " Default: 2
-let g:ycm_min_num_of_chars_for_completion = 2
+"let g:ycm_min_num_of_chars_for_completion = 2
 " This option controls the minimum number of charaters that a completion
 " candidate coming from the identifier completer must have to be shown in the
 " popup menu.
@@ -95,7 +99,7 @@ let g:ycm_min_num_of_chars_for_completion = 2
 " NOTE: This option only applies to the identifier completer; it has no effect
 " on the various semantic completer.
 " Default: 0
-let g:ycm_min_num_identifier_candidate_chars = 0
+"let g:ycm_min_num_identifier_candidate_chars = 0
 " When set to 0, this option turns off YCM's identifier completer(the
 " as-you-type popup) and the semantic triggers(the popup you'd get after typing
 " . of -> in say C++). You can still force semantic completion with <C-Space>
@@ -104,7 +108,7 @@ let g:ycm_min_num_identifier_candidate_chars = 0
 " triggers, you should set g:ycm_min_num_of_chars_for_completion to a high
 " number like 99.
 " Default: 1
-let g:ycm_auto_trigger = 1
+"let g:ycm_auto_trigger = 1
 " This option controls the key mapping used to invoke the completion menu for
 " semantic completion. By defaul, semantic completion is trigged automatically
 " after typing ., -> and :: in insert mode (if semantic completion support has
@@ -203,6 +207,7 @@ set showcmd
 "set foldenable         "允许折叠
 "set foldmethod=manual  "手动折叠
 
+" Go 配置
 
 " 状态行显示的内容
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")} 
