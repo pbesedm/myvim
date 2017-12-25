@@ -60,15 +60,13 @@ Plugin 'fatih/vim-go'
 " Switch between source files and header files quckly.
 Plugin 'vim-scripts/a.vim'
 
-
-
-
 call vundle#end()
 
 filetype plugin on		"载入文件类型插件
 filetype indent on		"为特定文件类型载入相关缩进文件
 
 set list
+set autowrite
 set laststatus=2
 set encoding=utf-8
 
@@ -364,3 +362,63 @@ nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+" go
+" Uncomment the next few lines to add some shortcuts to make it easier to jump
+" between errors in quickfix list
+" map <C-n> :cnext<CR>
+" map <C-m> :cprevious<CR>
+" nnoremap <leader>a :cclose<CR>
+
+" Use these shortcuts to build and run a Go program with <leader>b and <leader>r
+"autocmd FileType go nmap <leader>b <Plug>(go-build)
+"autocmd FileType go nmap <leader>r <Plug>(go-run)
+"autocmd FileType go nmap <leader>t <Plug>(go-test)
+
+" We have many other commands that allows us to call and then collect errors,
+" warnings or suggestions.
+"
+" For example :GoLint. Under the hood it calls golint, which is a command that
+" suggests changes to make Go code more idiomatic. There is also :GoVet, which
+" calls go vet under the hood. There are many other tools that check certain
+" things. To make it easier, someone decided to create a tool that calls all
+" these checkers. This tool is called gometalinter. And vim-go supports it via
+" the command :GoMetaLinter. So what does it do?
+"
+" If you just call :GoMetaLinter for a given Go source code. By default it'll
+" run go vet, golint and errcheck concurrently. gometalinter collects all the
+" outputs and normalizes it to a command format. Thus if you call :GoMetaLinter,
+" vim-go show the result of all these checkers inside a quickfix list. You can
+" then jump easily between the lint, vet and errcheck results. The setting for
+" this default is as following:
+"
+" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+"
+" There are many other tools and you can easily customize this list yourself. If
+" you call :GoMetaLinter it'll automatically uses the list above.
+"
+" Because :GoMetaLinter is usually fast, vim-go also can call it whenever you
+" save a file (just like: :GoFmt). To enable it you need to add the following to
+" your .vimrc:
+"
+" let g:go_metalinter_autosave = 1
+"
+" What's great is that the checkers for the autosave is different than what you
+" would use for :GoMetaLinter. This is great because you can customize it so
+" only fast checkers are called when you save your file, but others if you call
+" :GoMetaLinter. The following settings let you customize the checkers for the
+" autosave feature.
+"
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+"
+" As you see by default vet and golint are enabled. Lastly, to prevent
+" :GoMetaLinter running for too long, we have a setting to cancel it after a
+" given timeout. By default it is 5 seconds but can be changed by the following
+" settings:
+"
+" let g:go_metalinter_deadline = "5s"
+"
+" Refer [https://github.com/fatih/vim-go-tutorial#check-it]
+let g:go_metalinter_autosave = 0
+let g:go_metalinter_enabled = ['errcheck']
+let g:go_metalinter_autosave_enabled = ['errcheck']
