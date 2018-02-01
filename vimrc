@@ -60,6 +60,8 @@ Plugin 'fatih/vim-go'
 " Switch between source files and header files quckly.
 Plugin 'vim-scripts/a.vim'
 
+Plugin 'jeaye/color_coded'
+
 call vundle#end()
 
 filetype plugin on		"载入文件类型插件
