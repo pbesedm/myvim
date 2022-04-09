@@ -59,13 +59,14 @@ function main() {
 ROOTPATH="$(pwd)/myvim"
 BUNDLE_ABS_PATH="${ROOTPATH}/vim/bundle"
 
+
 echo -e '\e[31;1mCloning myvim ...\e[0m'
 
 if [ ! -d myvim ]; then
     git clone --recursive https://github.com/pbesedm/myvim.git
 fi
 
-cd "${BUNDLE_ABS_PATH}" || exit 1
+mkdir -p "${BUNDLE_ABS_PATH}" && cd "${BUNDLE_ABS_PATH}" || exit 1
 
 main "${ROOTPATH}/vimrc"
 
