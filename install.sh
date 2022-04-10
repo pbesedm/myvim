@@ -59,7 +59,6 @@ function main() {
 ROOTPATH="$(pwd)/myvim"
 BUNDLE_ABS_PATH="${ROOTPATH}/vim/bundle"
 
-
 echo -e '\e[31;1mCloning myvim ...\e[0m'
 
 if [ ! -d myvim ]; then
@@ -69,8 +68,6 @@ fi
 mkdir -p "${BUNDLE_ABS_PATH}" && cd "${BUNDLE_ABS_PATH}" || exit 1
 
 main "${ROOTPATH}/vimrc"
-
-exit 0
 
 cd "${ROOTPATH}" || exit 1
 ln -sf "${ROOTPATH}/vimrc" ~/.vimrc
