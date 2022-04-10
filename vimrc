@@ -60,7 +60,7 @@ Plugin 'fatih/vim-go'
 " Switch between source files and header files quckly.
 Plugin 'vim-scripts/a.vim'
 
-Plugin 'jeaye/color_coded'
+"Plugin 'jeaye/color_coded'
 
 call vundle#end()
 
@@ -340,7 +340,7 @@ map <C-M>h :DoxAuthor<CR>1.0<CR>
 map <C-M>f :Dox<CR>
 map <C-M>b :DoxBlock<CR>
 
-unmap <C-I>
+"unmap <C-I>
 
 " cscope 配置
 if has("cscope")
