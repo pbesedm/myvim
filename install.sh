@@ -73,8 +73,8 @@ main "${ROOTPATH}/vimrc"
 exit 0
 
 cd "${ROOTPATH}" || exit 1
-ln -s "${ROOTPATH}/vimrc" ~/.vimrc
-ln -s "${ROOTPATH}/vim" ~/.vim
+ln -sf "${ROOTPATH}/vimrc" ~/.vimrc
+ln -sf "${ROOTPATH}/vim" ~/.vim
 
 echo -e '\e[32;1mInstall myvim Done!\e[0m'
 echo -e '\e[32;1mNow run \"sudo pip install --user powerline-status" to support powerline.\e[0m'
