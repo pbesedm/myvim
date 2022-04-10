@@ -26,13 +26,13 @@ function main() {
 
         if [ ! -d "${repo_abs_path}" ]; then
             echo "git clone --recursive ${github_url} ${repo_abs_path}"
-            git clone --recursive "${github_url}" "${repo_abs_path}"
+            git clone --recurse-submodules -j4 "${github_url}" "${repo_abs_path}"
         else
             if_git_work_tree=$(check_if_path_is_a_git_repo "${repo_abs_path}")
             if [ "${if_git_work_tree}" != "true" ]; then
                 rm -rf "${repo_abs_path}"
                 echo "fetch git repo failed, git re-clone --recursive ${github_url} ${repo_abs_path}"
-                git clone --recursive "${github_url}" "${repo_abs_path}"
+                git clone --recurse-submodules -j4 "${github_url}" "${repo_abs_path}"
             fi
         fi
 
@@ -62,7 +62,7 @@ BUNDLE_ABS_PATH="${ROOTPATH}/vim/bundle"
 echo -e '\e[31;1mCloning myvim ...\e[0m'
 
 if [ ! -d myvim ]; then
-    git clone --recursive https://github.com/pbesedm/myvim.git
+    git clone --recurse-submodules -j4 https://github.com/pbesedm/myvim.git
 fi
 
 mkdir -p "${BUNDLE_ABS_PATH}" && cd "${BUNDLE_ABS_PATH}" || exit 1
