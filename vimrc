@@ -60,6 +60,9 @@ Plugin 'fatih/vim-go'
 " Switch between source files and header files quckly.
 Plugin 'vim-scripts/a.vim'
 
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plugin 'junegunn/fzf.vim'
+
 "Plugin 'jeaye/color_coded'
 
 call vundle#end()
@@ -124,6 +127,10 @@ let g:ycm_confirm_extra_conf = 0
 " Setting this option to and empty string will make sure no mapping is created.
 " Default: <C-Space>
 let g:ycm_key_invoke_completion = '<C-l>'
+
+let g:ycm_use_clangd = 1
+let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
+let g:ycm_gopls_binary_path='/Users/hdc/Workspace/go/bin'
 
 " vim-powerline
 let g:Powerline_symbols = 'fancy'
@@ -277,7 +284,7 @@ inoremap <c-f> <right>
 inoremap <c-b> <left>
 
 " 修改leader键为逗号
-let mapleader=","
+let mapleader="'"
 imap jj <esc>
 
 inoremap <F1> <ESC>
@@ -298,6 +305,7 @@ set autoread
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 " 代码补全
 set completeopt=longest,menu
+
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
 " 禁止生成临时文件
@@ -310,16 +318,6 @@ set backspace=2
 
 noremap! <C-A> <Home>
 inoremap <C-E> <End>
-
-" 标签操作
-map <C-T> :tabnew<CR>
-imap <C-T> <ESC>:tabnew .<CR>
-nnoremap t0 :tabfirst<CR>
-nnoremap tl :tabfirst<CR>
-nnoremap tp :tabprevious<CR>
-nnoremap tn :tabnext<CR>
-nnoremap tmh :tabmove -1<CR>
-nnoremap tml :tabmove +1<CR>
 
 " Doxygen 配置
 let g:DoxygenToolkit_briefTag_pre="@brief  "
@@ -424,3 +422,14 @@ nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_enabled = ['errcheck']
 let g:go_metalinter_autosave_enabled = ['errcheck']
+
+
+" 标签操作
+map <leader>t :tabnew<CR>
+imap <leader>t <ESC>:tabnew .<CR>
+nnoremap t0 :tabfirst<CR>
+nnoremap tl :tabfirst<CR>
+nnoremap tp :tabprevious<CR>
+nnoremap tn :tabnext<CR>
+nnoremap tmh :tabmove -1<CR>
+nnoremap tml :tabmove +1<CR>
