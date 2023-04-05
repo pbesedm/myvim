@@ -44,9 +44,9 @@ function main() {
     done < <(grep '^Plugin' "${vimrc_path}" | awk '{print $2}' | awk -F"'" '{print $2}' | awk '{header="https://github.com/";addr=$1;git=".git";url=(header""addr""git);print addr,url}')
 
     if type clang &>/dev/null; then
-        cd YouCompleteMe && ./install.py --clang-completer --go-completer --system-libclang
+        cd YouCompleteMe && python3 install.py --system-libclang --all
     else
-        cd YouCompleteMe && ./install.py --clang-completer --go-completer
+        cd YouCompleteMe && python3 install.py --all
     fi
 
     ret=$?
