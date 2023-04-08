@@ -65,6 +65,8 @@ Plugin 'junegunn/fzf.vim'
 
 "Plugin 'jeaye/color_coded'
 
+Plugin 'jremmen/vim-ripgrep'
+
 call vundle#end()
 
 filetype plugin on		"载入文件类型插件
@@ -74,6 +76,10 @@ set list
 set autowrite
 set laststatus=2
 set encoding=utf-8
+
+" 修改leader键为逗号
+let mapleader="'"
+imap jj <esc>
 
 " 下面一句最后面一定要留有一个空格
 set list listchars=tab:\|\ 
@@ -282,10 +288,6 @@ inoremap <c-n> <down>
 inoremap <c-p> <up>
 inoremap <c-f> <right>
 inoremap <c-b> <left>
-
-" 修改leader键为逗号
-let mapleader="'"
-imap jj <esc>
 
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
