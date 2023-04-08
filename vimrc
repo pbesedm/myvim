@@ -157,6 +157,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " if you use the https://github.com/Valloric/YouCompleteMe.
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>jc :YcmCompleter GoToCallers<CR>
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
