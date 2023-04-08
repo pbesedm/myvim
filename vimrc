@@ -436,3 +436,8 @@ nnoremap tp :tabprevious<CR>
 nnoremap tn :tabnext<CR>
 nnoremap tmh :tabmove -1<CR>
 nnoremap tml :tabmove +1<CR>
+
+" rg 搜索
+" 注意：Rg 后面有个空格
+map <leader>r :Rg 
+imap <leader>r :Rg 
