@@ -155,7 +155,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " If you want: :UltiSnipsEdit to split your window.
 " let g:UltiSnipsEditSplit="vertical"
 
-" use gopls
+" if you use the https://github.com/Valloric/YouCompleteMe.
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>jc :YcmCompleter GoToCallers<CR>
+
+" map <ldeader>gc for golang
 nnoremap <leader>gc :GoCallers<CR>
 
 " NERDTree
