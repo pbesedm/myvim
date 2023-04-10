@@ -65,7 +65,7 @@ Plugin 'junegunn/fzf.vim'
 
 "Plugin 'jeaye/color_coded'
 
-Plugin 'jremmen/vim-ripgrep'
+"Plugin 'jremmen/vim-ripgrep'
 
 call vundle#end()
 
