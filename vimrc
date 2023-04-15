@@ -77,6 +77,14 @@ set autowrite
 set laststatus=2
 set encoding=utf-8
 
+" 代码补全
+set completeopt=longest,menu
+
+if has('popupwin')
+  set completeopt+=popup
+  set completepopup=height:20,width:60,highlight:Pmenu,border:off
+endif
+
 " 修改leader键为逗号
 let mapleader="'"
 imap jj <esc>
@@ -158,9 +166,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " if you use the https://github.com/Valloric/YouCompleteMe.
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>jc :YcmCompleter GoToCallers<CR>
-
-" map <ldeader>gc for golang
-nnoremap <leader>gc :GoCallers<CR>
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -309,8 +314,6 @@ vnoremap <tab> %
 set autoread
 " quickfix模式
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
-" 代码补全
-set completeopt=longest,menu
 
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
